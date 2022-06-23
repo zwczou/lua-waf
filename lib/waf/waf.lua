@@ -252,21 +252,20 @@ function _M.check_and_output(self)
 
   local spent = (clock() - start) * 1000
   local user_agent = var.http_user_agent
-  local line = format('%s %s %s spent %0.2fms', user_agent, tostring(rule), fn, spent)
-  ngx.log(ngx.ERR, line)
 
   if cfg.redirect_uri then
     ngx.redirect(cfg.redirect_url, ngx.HTTP_MOVED_TEMPORARILY)
   else
     ngx.status = ngx.HTTP_FORBIDDEN
 
-    local is_json = cfg.content and cfg.content == "json"
-    if cfg.content and (cfg.content == "json" or cfg.content:sub(1, 1) == '{') then 
+    local is_debug = cfg.content == "json" or cfg.content == "debug"
+    if cfg.content and (is_debug or cfg.content:sub(1, 1) == '{') then
       ngx.header['Content-Type'] = 'application/json; charset=utf8'
     else
       ngx.header['Content-Type'] = 'text/html; charset=utf8'
     end
-    if is_json then
+
+    if is_debug then
       local data = {
         remote_addr = var.remote_addr,
         type = fn,
@@ -279,6 +278,10 @@ function _M.check_and_output(self)
       ngx.say(cfg.content)
     end
   end
+
+  ngx.eof()
+  local line = format('%s %s %s spent %0.2fms', user_agent, tostring(rule), fn, spent)
+  ngx.log(ngx.ERR, line)
 end
 
 return _M
