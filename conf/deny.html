@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <title>网站防火墙</title>
+    <style>
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style-type: none;
+}
+
+html {
+  font-size: calc(clamp(300px, 100vw, 750px) / 7.5);
+}
+.app {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: 0.24rem;
+}
+.container {
+  color: #555;
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+main {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+article {
+  border: 0.01rem dashed #cdcece;
+  border-top: none;
+  padding: 0.3rem 0.4rem;
+}
+h3 {
+  color: white;
+  height: 0.9rem;
+  line-height: 0.9rem;
+  padding-left: 0.5rem;
+  font-size: 0.34rem;
+  background-color: #6bb3f6;
+}
+h4 {
+  margin-top: 0.2rem;
+  margin-bottom: 0.4rem;
+  color: #fc4f03;
+  font-size: 0.30rem;
+}
+p {
+  margin-bottom: 0.3rem;
+}
+ul li {
+  margin-bottom: 0.25rem;
+}
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <div class="container">
+        <main>
+          <h3>网站防火墙</h3>
+          <article>
+            <h4>您的请求带有不合法参数，已被网站管理员设置拦截！</h4>
+            <p>可能原因：您提交的内容包含危险的攻击请求。</p>
+            <p>如何解决：</p>
+            <ul>
+              <li>1）检查提交内容；</li>
+              <li>2）请联系网站管理员；</li>
+            </ul>
+          </article>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
