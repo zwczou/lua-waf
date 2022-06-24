@@ -166,6 +166,10 @@ function _M.check_post_args_attach(self)
 end
 
 function _M.check_cc_attach(self, key)
+  if not cfg.check_cc then
+    return
+  end
+
   local delay = self.rate:limit(key)
   return delay > 0
 end
