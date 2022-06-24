@@ -15,9 +15,9 @@ access_by_lua_file /path/to/lua-waf/access.lua;
 
 ### 配置文件
 
-目前waf配置文件并没有使用JSON或者lua文件, 位置在`conf/waf.conf`
-使用`true`或者`on`都表示打开，`false`或者`off`代表关闭
-由于目前简单的替换字符串的`"'`，所以不能直接在`content`配置写`JSON`内容
+* 目前waf配置文件并没有使用JSON或者lua文件, 位置在`conf/waf.conf`
+* 使用`true`或者`on`都表示打开，`false`或者`off`代表关闭
+* 由于目前简单的替换字符串的`"'`，所以不能直接在`content`配置写`JSON`内容
 需要在`content` 配置的文件里面写入`JSON`返回内容
 
 ```nginx
