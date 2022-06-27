@@ -142,7 +142,7 @@ function _M.check_post_args_attach(self)
   end
 
   local method = req.get_method()
-  if method ~= ngx.HTTP_POST and method  ~= ngx.HTTP_UPDATE and method ~= ngx.HTTP_PUT then
+  if method ~= "POST" and method ~= "PUT" and method ~= "UPDATE" then
     return
   end
 
