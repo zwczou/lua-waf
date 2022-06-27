@@ -3,7 +3,7 @@
 
 local cfg = require "config"
 local cjson = require "cjson"
-local ipmatcher = require "ipmatcher"
+local ipmatcher = require "resty.ipmatcher"
 local rate = require "rate"
 
 local var = ngx.var
