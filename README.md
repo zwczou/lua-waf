@@ -13,6 +13,17 @@ init_by_lua_file /path/to/lua-waf/init.lua;
 access_by_lua_file /path/to/lua-waf/access.lua;
 ```
 
+### 安装依赖
+
+IP匹配依赖`ipmatcher`，可以使用`openresty`自带的`opm`安装
+
+`opm get xiangnanscu/lua-resty-ipmatcher`
+
+如果提示`opm`找不到，可以使用绝对路径
+
+`/path/to/openresty/bin/opm get xiangnanscu/lua-resty-ipmatcher`
+
+
 ### 配置文件
 
 * 目前waf配置文件并没有使用JSON或者lua文件, 位置在`conf/waf.conf`
